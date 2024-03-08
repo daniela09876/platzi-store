@@ -28,7 +28,7 @@ import { UsersService } from './services/users.service';
     CategoriesService,
     BrandsService,
     CustomersService,
-    UsersService
+    UsersService,
   ],
 })
-export class AppModule { }
+export class AppModule {}

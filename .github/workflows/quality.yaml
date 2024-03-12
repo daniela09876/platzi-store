@@ -27,3 +27,5 @@ jobs:
         run: pnpm install -D
       - name: Check formatting with Prettier
         run: pnpm prettier:check:ci
+      - name: Auto-fix formatting with Prettier
+        run: pnpm prettier:write

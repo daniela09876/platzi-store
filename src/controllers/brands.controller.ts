@@ -6,11 +6,11 @@ import {
   Body,
   Put,
   Delete,
-  ParseIntPipe,
+  ParseIntPipe
 } from '@nestjs/common';
 
 import { BrandsService } from '../services/brands.service';
-import { CreateBrandDto, UpdateBrandDto } from '../dtos/brand.dtos';
+import { CreateBrandDto, UpdateBrandDto } from '../dtos/brand.dtos'
 
 @Controller('brands')
 export class BrandsController {

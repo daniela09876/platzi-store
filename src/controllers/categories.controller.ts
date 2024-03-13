@@ -21,9 +21,9 @@ export class CategoriesController {
     return this.categoriesService.findAll();
   }
 
-  @Get(':id')
+  @Get(":id")
   get(@Param('id', ParseIntPipe) id: number) {
-    return this.categoriesService.finOne(id);
+    return this.categoriesService.finOne(id)
   }
 
   @Post()
@@ -31,7 +31,7 @@ export class CategoriesController {
     return this.categoriesService.create(payload);
   }
 
-  @Put(':id')
+  @Put(":id")
   update(@Param('id') id: number, @Body() payload: UpdateCategoryDto) {
     return this.categoriesService.update(id, payload);
   }

@@ -1,11 +1,9 @@
 name: Code Quality checks
 on:
   pull_request:
-
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
-
 jobs:
   prettier:
     name: Prettier
@@ -27,6 +25,11 @@ jobs:
         run: pnpm install -D
       - name: Auto-fix formatting with Prettier
         run: pnpm prettier:format
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Apply formatting changes
+          branch: ${{ github.head_ref }}
+          github_token: ${{ secrets.GH_PAT }}
       - name: Check formatting with Prettier
         run: pnpm prettier:check:ci
-      

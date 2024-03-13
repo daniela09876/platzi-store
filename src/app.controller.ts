@@ -10,7 +10,7 @@ export class AppController {
     return 'Hola Mundo!';
   }
 
-  @Get('nuevo')
+  @Get("nuevo")
   newEndpoint() {
     return 'Yo soy nuevo';
   }

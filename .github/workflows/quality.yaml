@@ -25,8 +25,12 @@ jobs:
           cache: 'pnpm'
       - name: Install dependencies
         run: pnpm install -D
-      - name: Auto-fix formatting with Prettier
-        run: pnpm prettier:format
       - name: Check formatting with Prettier
         run: pnpm prettier:check:ci
-      
+      - name: Auto-fix formatting with Prettier
+        run: pnpm prettier:format
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Apply formatting changes
+          branch: ${{ github.head_ref }}

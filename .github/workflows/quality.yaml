@@ -28,6 +28,6 @@ jobs:
         with:
           commit_message: Apply formatting changes
           branch: ${{ github.head_ref }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+          GITHUB_TOKEN: ${{ secrets.ACTION_TOKEN }} 
       - name: Check formatting with Prettier
         run: pnpm prettier:check:ci

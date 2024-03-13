@@ -30,5 +30,6 @@ jobs:
         with:
           commit_message: Apply formatting changes
           branch: ${{ github.head_ref }}
+          github_token: ${{ secrets.GH_PAT }}
       - name: Check formatting with Prettier
         run: pnpm prettier:check:ci

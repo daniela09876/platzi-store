@@ -1,7 +1,7 @@
 name: Code Quality checks
 on:
  pull_request:
-    branches: [main]
+    
 jobs:
  prettier:
     name: Prettier

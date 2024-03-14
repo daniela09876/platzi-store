@@ -10,8 +10,7 @@ jobs:
       matrix:
         node-version: [18]
         
-    permissions:
-      contents: write
+    permissions: {}
       
     steps:
       - uses: actions/checkout@v3

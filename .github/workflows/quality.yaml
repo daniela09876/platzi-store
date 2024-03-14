@@ -1,7 +1,7 @@
 name: Code Quality checks
 on:
  pull_request:
-    
+ 
 jobs:
  prettier:
     name: Prettier
@@ -9,25 +9,42 @@ jobs:
     strategy:
       matrix:
         node-version: [18]
+        
+    permissions:
+      contents: write
+      
     steps:
       - uses: actions/checkout@v3
+        with:
+        
+          ref: ${{ github.head_ref }}
+          repository: ${{ github.repository }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          
       - uses: pnpm/action-setup@v2
         with:
           version: 8
+          
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
+          
       - name: Install dependencies
         run: pnpm install -D
+        
       - name: Auto-fix formatting with Prettier
         run: pnpm prettier:format
+        
       - name: Commit changes
-        uses: stefanzweifel/git-auto-commit-action@v4
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: Apply formatting changes
-          branch: ${{ github.head_ref }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+         commit_message: Apply formatting changes
+         branch: ${{ github.head_ref }}
+        env:
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
       - name: Check formatting with Prettier
         run: pnpm prettier:check:ci
+

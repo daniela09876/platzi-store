@@ -11,8 +11,8 @@ export class ProductsService {
       id: 1,
       name: 'product 1',
       description: 'la la la',
-      price: 8765
-      image: "",
+      price: 8765,
+      image: '',
       stock: 78,
     },
   ];
@@ -22,7 +22,7 @@ export class ProductsService {
   }
 
   finOne(id: number) {
-    const product = this.products.find((item) => item.id === id);
+    const product = this.products.find((item) => item.id === id)
     if (!product) {
       throw new NotFoundException(`product #${id} not found`);
     }

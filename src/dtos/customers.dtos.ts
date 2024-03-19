@@ -8,11 +8,11 @@ export class CreateCustomerDto {
 
   @IsString()
   @IsEmail()
-  readonly email: string
+  readonly email: string;
 
   @IsNumber()
   @IsNotEmpty()
   readonly phone: number;
 }
 
-export class UpdateCustomerDto extends PartialType(CreateCustomerDto) { }
+export class UpdateCustomerDto extends PartialType(CreateCustomerDto) {}

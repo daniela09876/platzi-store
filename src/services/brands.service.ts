@@ -4,7 +4,7 @@ import { CreateBrandDto, UpdateBrandDto } from '../dtos/brand.dtos';
 
 @Injectable()
 export class BrandsService {
-  private counterId = 1
+  private counterId = 1;
 
   private brands: Brand[] = [
     {

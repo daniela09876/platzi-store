@@ -6,11 +6,11 @@ import {
   Body,
   Put,
   Delete,
-  ParseIntPipe
+  ParseIntPipe,
 } from '@nestjs/common';
 
 import { BrandsService } from '../services/brands.service';
-import { CreateBrandDto, UpdateBrandDto } from '../dtos/brand.dtos'
+import { CreateBrandDto, UpdateBrandDto } from '../dtos/brand.dtos';
 
 @Controller('brands')
 export class BrandsController {
@@ -18,7 +18,7 @@ export class BrandsController {
 
   @Get()
   findAll() {
-    return this.brandsService.findAll()
+    return this.brandsService.findAll();
   }
 
   @Get(':id')

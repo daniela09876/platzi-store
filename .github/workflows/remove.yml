@@ -1,0 +1,15 @@
+name: Deploy
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Remove console.log statements
+        run: |
+          find . -name "*.js" -exec sed -i '/console\.log/d' {} +

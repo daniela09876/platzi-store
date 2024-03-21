@@ -9,7 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      
+
+      # Script de bash para buscar y eliminar las llamadas a console.log en varios tipos de archivos
       - name: Remove console.log statements
         run: |
-          find . -name "*.js" -exec sed -i '/console\.log/d' {} +
+          find . -type f \( -name "*.js" -o -name "*.ts" -o -name "*.jsx" -o -name "*.tsx" \) -exec sed -i '/console\.log/d' {} +

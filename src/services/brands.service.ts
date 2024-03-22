@@ -55,6 +55,7 @@ export class BrandsService {
       throw new NotFoundException(`Brand #${id} not found`);
     }
     this.brands.splice(index, 1);
+    console.log(index);
     return true;
   }
 }

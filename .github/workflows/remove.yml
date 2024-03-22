@@ -16,10 +16,11 @@ jobs:
         uses: jacobtomlinson/gha-find-replace@v3
         with:
           find: "console\\.log\\(([^)]+)\\)"
-          replace: ""
+          replace: "log"
           regex: true
-
+      
       - name: Push changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Remove console.log statements"
+       

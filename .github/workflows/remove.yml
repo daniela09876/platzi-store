@@ -12,10 +12,14 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - uses: appleboy/run-command-action@master
+      - name: Find and Replace
+        uses: jacobtomlinson/gha-find-replace@v3
         with:
-          command: |
-            find . -type f -exec sed -i 's/console\.log\(([^)]*)\);//g' {} +
+          find: "hello"
+          replace: ""
+          regex: true
+        env:
+          DEBUG: 'true'
       
       - name: Push changes
         uses: stefanzweifel/git-auto-commit-action@v5

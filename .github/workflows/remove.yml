@@ -10,7 +10,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      # Script de bash para buscar y eliminar las llamadas a console.log en varios tipos de archivos
-      - name: Remove console.log statements
-        run: |
-          find . -type f \( -name "*.js" -o -name "*.ts" -o -name "*.jsx" -o -name "*.tsx" \) -exec sed -i '/console\.log/d' {} +
+      - name: Find and Replace
+        uses: jacobtomlinson/gha-find-replace@v2
+        with:
+          find: "console\\.log\\(([^)]+)\\)"
+          replace: ""
+          regex: true

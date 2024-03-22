@@ -12,9 +12,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Delete console.log
-        run: |
-          find . -type f -exec sed -i 's/console\.log\(([^)]*)\);//g' {} +
+      - uses: appleboy/run-command-action@master
+        with:
+          command: |
+            find . -type f -exec sed -i 's/console\.log\(([^)]*)\);//g' {} +
       
       - name: Push changes
         uses: stefanzweifel/git-auto-commit-action@v5

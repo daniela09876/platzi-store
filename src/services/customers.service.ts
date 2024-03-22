@@ -24,7 +24,7 @@ export class CustomersService {
     if (!Customer) {
       throw new NotFoundException(`Customer #${id} not found`);
     }
-    console.log(customer);
+    log;
     return customer;
   }
 
@@ -35,7 +35,7 @@ export class CustomersService {
       ...data,
     };
     this.customers.push(newCustomer);
-    console.log(newCustomer);
+    log;
     return newCustomer;
   }
 
@@ -47,6 +47,8 @@ export class CustomersService {
       ...customers,
       ...data,
     };
+    console.log(customers);
+    console.log(index);
     return this.customers[index];
   }
 

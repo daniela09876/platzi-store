@@ -25,9 +25,9 @@ jobs:
 
     - name: Detect console.log
       run: |
-        if grep -r --include=\*.js --include=\*.ts "console.log" .; then
-          echo "console.log detected"
-          exit 1
-        else
-          echo "No console.log detected"
-        fi
+       if grep -r --include=\*.js --include=\*.ts --exclude-dir=node_modules "console.log" .; then
+       echo "console.log detected"
+       exit 1
+       else
+       echo "No console.log detected"
+       fi

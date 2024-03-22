@@ -48,6 +48,7 @@ export class ProductsService {
         ...product,
         ...payload,
       };
+      console.log(product);
       return this.products[index];
     }
   }
@@ -58,6 +59,7 @@ export class ProductsService {
       throw new NotFoundException(`product #${id} not found`);
     }
     this.products.splice(index, 1);
+    console.log(index);
     return true;
   }
 }

@@ -1,27 +1,22 @@
-name: Ejecutar Tests
+name: Jest Tests
 
-on:
-  push:
-  pull_request:
+on: [push, pull_request]
 
 jobs:
-  tests:
-    name: Ejecutar Tests
+ test:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Setup Node.js and npm
-        uses: actions/setup-node@v2
+      - uses: actions/checkout@v2
+      - name: Set up Node.js
+        uses: actions/setup-node@v1
         with:
-          node-version: '14'
-
+          node-version: '20.9.0'
+          
       - name: Install dependencies
-        run: npm install
-
+        run: yarn
+        
       - name: Run unit tests
-        run: npm test
-
-      - name: Run end-to-end tests
-        run: npm run test:e2e
+        run: yarn run test
+        
+      - name: Run e2e tests
+        run: yarn run test:e2e

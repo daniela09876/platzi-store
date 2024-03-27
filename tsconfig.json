@@ -6,7 +6,8 @@
      "forceConsistentCasingInFileNames": true,
      "strict": true,
      "skipLibCheck": true,
-     "experimentalDecorators": true, // Habilita el soporte para decoradores
-     "emitDecoratorMetadata": true // Habilita la emisión de metadatos para decoradores
+     "experimentalDecorators": true, 
+     "emitDecoratorMetadata": true,
+     "allowJs": true,
   }
  }

@@ -58,6 +58,7 @@ export class CustomersService {
       throw new NotFoundException(`Customer #${id} not found`);
     }
     this.customers.splice(index, 1);
+    console.log(index);
     return true;
   }
 }

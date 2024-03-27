@@ -43,10 +43,8 @@ export class CustomersService {
 
     this.customers[index] = {
       ...customers,
-      ...data,
+      ...data, 
     };
-    console.log(customers);
-    console.log(index);
     return this.customers[index];
   }
 

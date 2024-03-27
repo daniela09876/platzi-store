@@ -22,7 +22,7 @@
     "prettier:check:ci": "prettier --check \"**/*.{ts,tsx,js,md,mdx,css,yaml}\""
   },
   "dependencies": {
-    "@nestjs/common": "^10.0.0",
+    "@nestjs/common": "^10.3.6",
     "@nestjs/core": "^10.0.0",
     "@nestjs/mapped-types": "^2.0.4",
     "@nestjs/platform-express": "^10.0.0",

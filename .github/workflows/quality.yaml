@@ -24,15 +24,13 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
-          
+        
       - name: Install dependencies
         run: pnpm install -D
         
-      - name: Check formatting with Prettier
-        run: pnpm prettier:check:ci
+      - name: Check and fix formatting with Prettier
+        run: pnpm prettier:check:ci --write
 
-      - name: Format code with Prettier
-        run: pnpm prettier --write 
-
-      - name: Check for changes
-        run: git diff --exit-code || git add . && git commit -m "Prettier formatting" && git push origin ${{ github.ref }}
+      - name: Add changes and commit if needed
+        run: |
+          git diff --exit-code || (git add . && git commit -m "Prettier formatting")

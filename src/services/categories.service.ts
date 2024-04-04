@@ -43,7 +43,7 @@ export class CategoriesService {
       ...categories,
       ...data,
       id,
-     };
+    };
     return this.categories[index];
   }
 

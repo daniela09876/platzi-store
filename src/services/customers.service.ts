@@ -43,7 +43,7 @@ export class CustomersService {
 
     this.customers[index] = {
       ...customers,
-      ...data, 
+      ...data,
     };
     return this.customers[index];
   }

@@ -13,7 +13,7 @@ jobs:
     strategy:
       matrix:
         node-version: [18]
-        
+
     steps:
       - uses: actions/checkout@v3
       - uses: pnpm/action-setup@v2
@@ -24,18 +24,18 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
-        
+
       - name: Install dependencies
         run: pnpm install -D
-        
+
       - name: Check and fix formatting with Prettier
         run: pnpm prettier:check:ci
 
       - name: Add changes and commit if needed
         run: |
-         git diff --exit-code || (
-         git config --global user.email "daniela060215@gmail.com"
-         git config --global user.name "Daniela"
-         git add .
-         git commit -m "Prettier formatting"
-         )
+          git diff --exit-code || (
+          git config --global user.email "daniela060215@gmail.com"
+          git config --global user.name "Daniela"
+          git add .
+          git commit -m "Prettier formatting"
+          )

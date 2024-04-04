@@ -33,4 +33,9 @@ jobs:
 
       - name: Add changes and commit if needed
         run: |
-          git diff --exit-code || (git add . && git commit -m "Prettier formatting")
+         git diff --exit-code || (
+         git config --global user.email "daniela060215@gmail.com"
+         git config --global user.name "Daniela"
+         git add .
+         git commit -m "Prettier formatting"
+         )

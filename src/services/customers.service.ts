@@ -47,8 +47,8 @@ export class CustomersService {
       ...customers,
       ...data,
     };
-    console.log(customers);
-    console.log(index);
+    log;
+    log;
     return this.customers[index];
   }
 

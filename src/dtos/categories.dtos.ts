@@ -7,4 +7,6 @@ export class CreateCategoryDto {
   readonly name: string;
 }
 
+log;
+
 export class UpdateCategoryDto extends PartialType(CreateCategoryDto) {}

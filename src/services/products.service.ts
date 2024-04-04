@@ -30,7 +30,7 @@ export class ProductsService {
   }
 
   create(payload: CreateProductDto) {
-    console.log(payload);
+    log;
     this.counterId = this.counterId + 1;
     const newProduct = {
       id: this.counterId,
@@ -48,6 +48,7 @@ export class ProductsService {
         ...product,
         ...payload,
       };
+      log;
       return this.products[index];
     }
   }
@@ -58,6 +59,7 @@ export class ProductsService {
       throw new NotFoundException(`product #${id} not found`);
     }
     this.products.splice(index, 1);
+    log;
     return true;
   }
 }

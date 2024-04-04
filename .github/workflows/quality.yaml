@@ -31,5 +31,6 @@ jobs:
       - name: Check and fix formatting with Prettier
         run: pnpm prettier:check:ci --write
 
-      - name: Check for changes
-        run: git diff --exit-code || (git add . && git commit -m "Prettier formatt
+      - name: Add changes and commit if needed
+        run: |
+          git diff --exit-code || (git add . && git commit -m "Prettier formatting")

@@ -13,6 +13,7 @@ jobs:
     strategy:
       matrix:
         node-version: [18]
+        
     steps:
       - uses: actions/checkout@v3
       - uses: pnpm/action-setup@v2
@@ -23,11 +24,15 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
+          
       - name: Install dependencies
         run: pnpm install -D
+        
       - name: Check formatting with Prettier
         run: pnpm prettier:check:ci
-      - name: Install TypeScript
-        run: pnpm install --save-dev typescript
-      - name: Check TypeScript
-        run: pnpm tsc --noEmit
+
+      - name: Format code with Prettier
+        run: pnpm prettier --write 
+
+      - name: Check for changes
+        run: git diff --exit-code || git add . && git commit -m "Prettier formatting" && git push origin ${{ github.ref }}

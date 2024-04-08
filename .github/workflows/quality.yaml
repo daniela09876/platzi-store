@@ -34,5 +34,10 @@ jobs:
       - name: Check for changes
         run: git status
 
-      - name: Run script
-        run: bash /path/to/your/auto_commit_script.sh
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v9
+        with:
+          author_name: Daniela
+          author_email: daniela060215@gmail.com
+          message: 'prettier formatting'
+          add: '*.js'

@@ -28,8 +28,11 @@ jobs:
       - name: Install dependencies
         run: pnpm install -D
 
-      - name: Check and fix formatting with Prettier
-        run: pnpm prettier:check:ci
+      - name: fix formatting with Prettier
+        run: pnpm prettier:format
+
+      - name: Check for changes
+        run: git status
 
       - name: Add changes and commit if needed
         run: |

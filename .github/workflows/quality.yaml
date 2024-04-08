@@ -34,11 +34,5 @@ jobs:
       - name: Check for changes
         run: git status
 
-      - name: Add changes and commit if needed
-        run: |
-          git diff --exit-code || (
-          git config --global user.email "daniela060215@gmail.com"
-          git config --global user.name "Daniela"
-          git add .
-          git commit -m "Prettier formatting"
-          )
+      - name: Run script
+        run: bash /path/to/your/auto_commit_script.sh

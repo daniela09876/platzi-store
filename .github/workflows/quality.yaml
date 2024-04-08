@@ -29,7 +29,7 @@ jobs:
         run: pnpm install -D
 
       - name: Check and fix formatting with Prettier
-        run: pnpm prettier:check:ci -- --write
+        run: pnpm prettier:check:ci
 
       - name: Check for changes
         run: git status 

@@ -31,6 +31,9 @@ jobs:
       - name: Check and fix formatting with Prettier
         run: pnpm prettier:check:ci
 
+      - name: Check for changes
+        run: git status --short
+
       - name: Add changes and commit if needed
         run: |
           git diff --exit-code || (

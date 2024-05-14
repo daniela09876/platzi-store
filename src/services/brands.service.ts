@@ -23,7 +23,6 @@ export class BrandsService {
     if (!product) {
       throw new NotFoundException(`Brand #${id} not found`);
     }
-    console.log(product);
     return product;
   }
 
@@ -34,7 +33,6 @@ export class BrandsService {
       ...data,
     };
     this.brands.push(newBrand);
-    console.log(newBrand);
     return newBrand;
   }
 
@@ -55,7 +53,6 @@ export class BrandsService {
       throw new NotFoundException(`Brand #${id} not found`);
     }
     this.brands.splice(index, 1);
-    console.log(index);
     return true;
   }
 }

@@ -3,7 +3,6 @@ name: Format and Push with Biome
 on:
   push:
     branches:
-      - develop
 
 jobs:
   format:

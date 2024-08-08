@@ -17,12 +17,12 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16'  # Cambia la versión de Node.js si es necesario
+          node-version: '16'  
 
       - name: Run Biome formatter
         run: |
-          npx biome format .  
-
+          npx @biomejs/biome format --write
+          
       - name: Check for changes
         id: git_diff
         run: |

@@ -22,7 +22,7 @@ jobs:
 
       - name: Run Biome formatter
         run: |
-          npx @biomejs/biome format --write
+          npx @biomejs/biome format
           
       - name: Check for changes
         id: git_diff
@@ -34,4 +34,4 @@ jobs:
         with:
           commit_message: 'Apply Biome formatting'
         env:
-          GITHUB_TOKEN: ${{ secrets.ACTION_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

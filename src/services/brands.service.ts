@@ -1,58 +1,58 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
-import { Brand } from '../entities/brands.entity';
-import { CreateBrandDto, UpdateBrandDto } from '../dtos/brand.dtos';
+import { Injectable, NotFoundException } from "@nestjs/common";
+import { Brand } from "../entities/brands.entity";
+import { CreateBrandDto, UpdateBrandDto } from "../dtos/brand.dtos";
 
 @Injectable()
 export class BrandsService {
-  private counterId = 1;
+	private counterId = 1;
 
-  private brands: Brand[] = [
-    {
-      id: 1,
-      name: 'Brand 1',
-      price: 1.0,
-    },
-  ];
+	private brands: Brand[] = [
+		{
+			id: 1,
+			name: "Brand 1",
+			price: 1.0,
+		},
+	];
 
-  findAll() {
-    return this.brands;
-  }
+	findAll() {
+		return this.brands;
+	}
 
-  finOne(id: number) {
-    const product = this.brands.find((item) => item.id === id);
-    if (!product) {
-      throw new NotFoundException(`Brand #${id} not found`);
-    }
-    return product;
-  }
+	finOne(id: number) {
+		const product = this.brands.find((item) => item.id === id);
+		if (!product) {
+			throw new NotFoundException(`Brand #${id} not found`);
+		}
+		return product;
+	}
 
-  create(data: CreateBrandDto) {
-    this.counterId = this.counterId + 1;
-    const newBrand = {
-      id: this.counterId,
-      ...data,
-    };
-    this.brands.push(newBrand);
-    return newBrand;
-  }
+	create(data: CreateBrandDto) {
+		this.counterId = this.counterId + 1;
+		const newBrand = {
+			id: this.counterId,
+			...data,
+		};
+		this.brands.push(newBrand);
+		return newBrand;
+	}
 
-  update(id: number, data: UpdateBrandDto) {
-    const brand = this.finOne(id);
-    const index = this.brands.findIndex((item) => item.id === id);
+	update(id: number, data: UpdateBrandDto) {
+		const brand = this.finOne(id);
+		const index = this.brands.findIndex((item) => item.id === id);
 
-    this.brands[index] = {
-      ...brand,
-      ...data,
-    };
-    return this.brands[index];
-  }
+		this.brands[index] = {
+			...brand,
+			...data,
+		};
+		return this.brands[index];
+	}
 
-  remove(id: number) {
-    const index = this.brands.findIndex((item) => item.id === id);
-    if (index === -1) {
-      throw new NotFoundException(`Brand #${id} not found`);
-    }
-    this.brands.splice(index, 1);
-    return true;
-  }
+	remove(id: number) {
+		const index = this.brands.findIndex((item) => item.id === id);
+		if (index === -1) {
+			throw new NotFoundException(`Brand #${id} not found`);
+		}
+		this.brands.splice(index, 1);
+		return true;
+	}
 }

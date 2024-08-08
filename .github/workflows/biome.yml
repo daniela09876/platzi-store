@@ -19,6 +19,9 @@ jobs:
         with:
           node-version: '16'  
 
+      - name: Install dependencies biome
+        run: npm install --save-dev --save-exact @biomejs/biome
+
       - name: Run Biome formatter
         run: |
           npx @biomejs/biome format --write
@@ -27,9 +30,6 @@ jobs:
         id: git_diff
         run: |
           git diff --exit-code || echo "::set-output name=changes::changes"
-
-      - name: Check for changes
-        run: git status
 
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v5

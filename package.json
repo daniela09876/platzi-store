@@ -19,7 +19,8 @@
 		"test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
 		"test:e2e": "jest --config ./test/jest-e2e.json",
 		"prettier:format": "prettier --write \"**/*.{ts,tsx,js,md,mdx,css,yaml}\"",
-		"prettier:check:ci": "prettier --check \"**/*.{ts,tsx,js,md,mdx,css,yaml}\""
+		"prettier:check:ci": "prettier --check \"**/*.{ts,tsx,js,md,mdx,css,yaml}\"",
+		"format:imports": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,scss,md}\" --ignore-path .gitignore"
 	},
 	"dependencies": {
 		"@nestjs/common": "^10.3.6",
@@ -39,6 +40,7 @@
 		"@nestjs/cli": "^10.0.0",
 		"@nestjs/schematics": "^10.0.0",
 		"@nestjs/testing": "^10.0.0",
+		"@trivago/prettier-plugin-sort-imports": "^4.3.0",
 		"@types/express": "^4.17.17",
 		"@types/jest": "^29.5.12",
 		"@types/node": "^20.3.1",

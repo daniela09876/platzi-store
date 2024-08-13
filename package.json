@@ -20,7 +20,8 @@
 		"test:e2e": "jest --config ./test/jest-e2e.json",
 		"prettier:format": "prettier --write \"**/*.{ts,tsx,js,md,mdx,css,yaml}\"",
 		"prettier:check:ci": "prettier --check \"**/*.{ts,tsx,js,md,mdx,css,yaml}\"",
-		"format:imports": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,scss,md}\" --ignore-path .gitignore"
+		"format:imports": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,scss,md}\" --ignore-path .gitignore",
+		"biome:format": "biome format ./src --write --ignore .github/workflows"
 	},
 	"dependencies": {
 		"@nestjs/common": "^10.3.6",

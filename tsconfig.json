@@ -1,4 +1,4 @@
-{
+
    "compilerOptions": {
       "target": "es2016",
       "module": "commonjs",
@@ -15,9 +15,10 @@
       "alwaysStrict": true,
       "strictBindCallApply": true,
       "strictNullChecks": true,
-      "strictFunctionTypes": true
+      "strictFunctionTypes": true,
+      "unsafeParameterDecoratorsEnabled": true
    },
    "include": [
       "src/**/*"
    ]
-  }
+}

@@ -1,0 +1,39 @@
+name: Format and Push with Biome
+
+on:
+  push:
+    branches:
+
+jobs:
+  format:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'  
+
+      - name: Install dependencies biome
+        run: npm install --save-dev --save-exact @biomejs/biome
+
+      - name: Run Biome formatter
+        run: |
+          npx @biomejs/biome format --write
+          
+      - name: Check for changes
+        id: git_diff
+        run: |
+          git diff --exit-code || echo "::set-output name=changes::changes"
+
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'Apply Biome formatting'
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACTION_TOKEN }}
